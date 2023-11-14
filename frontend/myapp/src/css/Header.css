@@ -1,0 +1,60 @@
+.header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    background-color: black;
+    color: #f9f7f7;
+    position: sticky;
+    top: 0;
+}
+.logo{
+    font-size: 22px;
+    padding: 12px 15px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 700;
+
+}
+.navMenu{
+    padding: 12px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navMenu li {
+    list-style: none;
+    margin: 0 5px;
+
+}
+.navMenu li a {
+    text-decoration: none;
+    padding: 5px 15px;
+    font-size: 15px;
+    color: white;
+    font-weight: 600;
+}
+.navMenu li a:hover{
+    /* border-bottom: 2px solid white; */
+    color: rgb(163, 161, 161);
+}
+.logButton{
+    margin-left: auto;
+    padding: 0px 3px;
+}
+
+.logButton a {
+    text-decoration: none;
+    color: black;
+    background-color: #c7c5c5;
+    padding: 3px 8px;
+    outline: none;
+    border-style: none;
+    border: 1px solid rgb(129, 127, 127);
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 3px;
+    margin-right: 4px;
+    font-size: 15px;
+    font-weight: 600;
+}

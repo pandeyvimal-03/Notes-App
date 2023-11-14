@@ -1,0 +1,8 @@
+.notes{
+    width: 80vw;
+    margin: 20px auto;
+    display: flex;
+    align-items:flex-start;
+    /* justify-content: space-around; */
+    flex-wrap: wrap;
+}

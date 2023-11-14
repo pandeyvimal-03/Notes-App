@@ -1,0 +1,29 @@
+.notesItem{
+    width: 250px ;
+    /* height: auto; */
+    min-height: 200px;
+    padding: 8px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0);
+    border: 2px solid black;
+    margin: 10px 20px;
+}
+.fonts {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin : 2px 0px;
+   padding: 2px 4px;
+}
+.fonts i {
+    cursor: pointer;
+}
+.notesItem h2{
+    font-size: 18px;
+    padding: 2px 0px;
+    color: rgb(15, 15, 15);
+}
+.notesItem p{
+    font-size: 15px;
+    color: rgb(21, 21, 21);
+    padding : 2px 0px; 
+}
