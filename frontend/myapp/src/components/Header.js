@@ -18,7 +18,7 @@ function Header (){
         <nav className="navMenu">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/notes">Notes</Link></li>
-            <li><Link to="/about">About</Link></li>
+          
            
         </nav>
          <div className="logButton">

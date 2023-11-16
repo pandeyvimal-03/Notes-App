@@ -1,9 +1,11 @@
 import React, {useContext , useEffect}from 'react'
 import { useNavigate } from 'react-router-dom';
 import UserContext from '../context/user/userContext';
+import NoteContext from '../context/notes/noteContext';
 
 function Logout() {
     const { LogedIn,setLogedIn } = useContext(UserContext)
+    const { setNotes} = useContext(NoteContext)
     const navigate = useNavigate()
 
     const logout = async () => {
@@ -24,6 +26,7 @@ function Logout() {
             if (response.success ) {
                 setLogedIn(false);
                 console.log(setLogedIn)
+                setNotes(null)
                 return navigate('/login');
             } else {
                 console.error('Logout failed:', res.statusText);

@@ -8,7 +8,7 @@ function NotesItem(props) {
   return (
     <div className='notesItem'>
         <div className="fonts">
-        <i className="fa-regular fa-pen-to-square"></i>
+        <i className="fa-regular fa-pen-to-square" onClick={()=>{props.handleEditNote(note)}}></i>
         <i className="fa-solid fa-trash" onClick={ ()=>{deleteNote(note._id)}}></i>
         </div>
         <hr />

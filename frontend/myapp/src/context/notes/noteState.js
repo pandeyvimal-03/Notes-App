@@ -50,17 +50,34 @@ function NoteState(props) {
 
     // updating a note 
     const updateNote = async (id ,title , description , tag)=>{
-        const res = await fetch (`${url}/updateNote/${id}` , {
-            method : 'PUT',
-            headers : { 
-                'content-type' : 'application/json'
-            },
-            credentials : "include",
-            body : JSON.stringify({title : title , description : description , tag : tag})
-        })
 
-        const response = await res.json();
-        console.log(response)
+        console.log('here what we have got ' , id , title)
+
+         const res = await fetch (`${url}/updateNote/${id}` , {
+             method : 'PUT',
+           headers : { 
+                 'content-type' : 'application/json'
+             },
+             credentials : "include",
+             body : JSON.stringify({title : title , description : description , tag : tag})
+         })
+
+         const response = await res.json();
+         if(response.success){
+            let newNotes = JSON.parse(JSON.stringify(notes))
+            for (let index = 0; index < newNotes.length; index++) {
+                const element = newNotes[index];
+                if (element._id === id) {
+                  newNotes[index].title = title;
+                  newNotes[index].description = description;
+                  newNotes[index].tag = tag; 
+                  break; 
+                }
+              }  
+              setNotes(newNotes);
+              return true;
+         }
+         console.log(response)
 
     }
 

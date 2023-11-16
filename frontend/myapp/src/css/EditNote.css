@@ -1,0 +1,61 @@
+
+.EditNote{
+    position: fixed;
+    top: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0vw;
+    height: 0vh;
+    background-color: rgba(199, 220, 226, 0.9);
+    animation: animateMe 0.6s forwards;
+    z-index: 1;
+    opacity: 1;
+}
+@keyframes animateMe {
+    0%{
+        width: 0;
+        height: 0;
+    }
+    100%{
+        width: 100vw;
+        height: 93vh;
+    }
+}
+
+.myForm{
+    width: 40%; 
+    display: flex;
+    flex-direction: column;
+    padding: 20px 18px;
+    background-color: beige;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid black;
+   
+}
+.myForm input , textarea{
+    padding: 12px 10px;
+    border-style: none;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 4px;
+   margin: 8px 0px; 
+  
+}
+.myForm button{
+    padding: 12px 0px;
+    margin-top: 15px;
+    background-color: rgb(13, 13, 13);
+    color: white;
+    font-weight: 600;
+    outline: none;
+    border-style: none;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-size: 17px;
+    cursor: pointer;
+}
+.hide{
+    display: none;
+}

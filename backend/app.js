@@ -11,7 +11,7 @@ const authenticate = require('./middleware/authenticate')
 
 
 // middlewares
-app.use(cors({origin:'http://localhost:3001',  credentials: true }))
+app.use(cors({origin:'http://localhost:3000',  credentials: true }))
 app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))

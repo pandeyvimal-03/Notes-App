@@ -1,3 +1,5 @@
+
+/* This is style */
 .notes{
     width: 80vw;
     margin: 20px auto;
@@ -5,4 +7,5 @@
     align-items:flex-start;
     /* justify-content: space-around; */
     flex-wrap: wrap;
+    /* position: relative; */
 }
