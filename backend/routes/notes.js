@@ -36,19 +36,19 @@ router.post('/addNote', validate, async (req, res) => {
     try {
         const { title, description, tag } = req.body;
         const newNotes = await notes.create({ user: req.user.id, title: title, description: description, tag: tag })
-        res.json(newNotes)
+       return res.json(newNotes)
 
     } catch (error) {
 
-        res.json({ message: "Internal server error", error: error })
+       return res.json({ message: "Internal server error", error: error })
 
     }
 })
 
 // ...........................................updating a note item
-router.put('/updateNote/:id', async(req, res)=>{
+router.post('/updateNote/:id', async(req, res)=>{
 
-    
+   
     const{title, description  , tag} = req.body;
     const id = req.params.id;
 
@@ -68,11 +68,11 @@ router.put('/updateNote/:id', async(req, res)=>{
         }
     
         const updatedNote = await notes.findByIdAndUpdate(id , {$set : newNote} , {new : true})
-        res.json({success : true , updatedNote})
+       return res.status(200).json({success : true , updatedNote})
     
     } 
     catch (error) {
-        res.json({success : false , message : "Internal server error"})
+       return res.status(500).json({success : false , message : "Internal server error"})
     }
    
 
@@ -80,29 +80,29 @@ router.put('/updateNote/:id', async(req, res)=>{
 
 // Deleting an item from notes
 
-router.delete('/deleteNote/:id' , async(req,res)=>{
+router.post('/deleteNote/:id' , async(req,res)=>{
   
-    console.log('we are in delete section')
+   
     const id = req.params.id;
-    console.log(id)
+  
   try {
     
     const note = await notes.findById(id)
-    console.log(note)
+   
     if(!note){
        
        return res.json({success : false , message : "unsuccessful deletion"});
     }
     
     await notes.findByIdAndDelete(id)
-    console.log('deleted successfully')
-    res.json({success : true , message : "deleted successfully"})
+   
+    return  res.status(200).json({success : true , message : "deleted successfully"})
     
     
   }
    catch (error) {
    
-    res.json({success : false , message : "Internal server error"})
+   return response.status(500).json({success : false , message : "Internal server error"})
   }
     
 })

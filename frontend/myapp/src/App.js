@@ -10,6 +10,8 @@ import Notes from './components/Notes';
 import NoteState from './context/notes/noteState';
 import UserState from './context/user/userState';
 import Logout from './components/Logout';
+import ErrorPage from './components/ErrorPage';
+import User from './components/User';
 
 function App() {
   return (
@@ -20,11 +22,13 @@ function App() {
           <Router>
           <Header />
             <Routes>
-            <Route exact path='/signup' element={<Signup />} />
+            <Route exact path='/signup' element={<Signup />}  />
              <Route exact path='/' element={<Home />} />
               <Route exact path='/notes' element={<Notes />} />
               <Route exact path='/login' element={<Login />} />
               <Route exact path='/logout' element={<Logout />} />
+              <Route exact path='/user' element={<User />} />
+              <Route path='*' element={<ErrorPage></ErrorPage>} />
               
 
 

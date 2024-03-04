@@ -4,7 +4,7 @@
     border-radius: 4px;
     border: 1px solid black;
     text-align: center;
-    top: 80px;
+    top: 120px;
     right: 0px;
     animation: Slide 5s ;
 }
@@ -49,4 +49,13 @@
         width: 0;
     }
     
+}
+
+@media screen and (max-width : 600px) {
+    .notify{
+        width: 200px;
+    }
+    .msg{
+        font-size: 12px;
+    }
 }

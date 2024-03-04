@@ -1,13 +1,13 @@
 
 .EditNote{
     position: fixed;
-    top: 54px;
+    top: 84px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 0vw;
     height: 0vh;
-    background-color: rgba(199, 220, 226, 0.9);
+    background-color: rgba(232, 235, 235, 0.9);
     animation: animateMe 0.6s forwards;
     z-index: 1;
     opacity: 1;
@@ -28,11 +28,16 @@
     display: flex;
     flex-direction: column;
     padding: 20px 18px;
-    background-color: beige;
+    background-color: rgb(125, 125, 124);
     text-align: center;
     border-radius: 4px;
     border: 1px solid black;
    
+}
+.myForm h2{
+    font-size: 35px;
+    font-family: "Dancing Script", cursive;
+    font-weight: bolder;
 }
 .myForm input , textarea{
     padding: 12px 10px;
@@ -58,4 +63,14 @@
 }
 .hide{
     display: none;
+}
+
+@media screen and (max-width : 600px) {
+    .myForm{
+        width: 90%;
+    }
+    .myForm textarea{
+        width: 100%;
+        margin: 10px auto;
+    }
 }

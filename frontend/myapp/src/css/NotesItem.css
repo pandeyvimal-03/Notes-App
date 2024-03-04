@@ -27,3 +27,9 @@
     color: rgb(21, 21, 21);
     padding : 2px 0px; 
 }
+
+@media screen and (max-width : 600px) {
+    .notesItem{
+        width: 90%;
+    }
+}

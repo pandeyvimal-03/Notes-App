@@ -1,0 +1,31 @@
+.user{
+    width: 100%;
+    height: auto;
+    margin: auto;
+   
+}
+.outlink{
+    width: 38%;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px 5px;
+   
+    
+}
+.user .outlink a{
+  
+    text-decoration: none;
+    text-align: center;
+    font-family: "Dancing Script", cursive;
+    font-size: 30px;
+    margin: auto;
+    color: rgb(172, 56, 56);
+}
+@media screen and (max-width : 600px) {
+    .user{
+        width: 100%;
+    }
+    .outlink{
+        width: 90%;
+    }
+}

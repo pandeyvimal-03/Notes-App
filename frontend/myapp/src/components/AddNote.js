@@ -21,7 +21,7 @@ function AddNote() {
     }
     return (
         <div className='AddNote'>
-            <h3> Read create update and delete your notes using <span>V-Notes</span></h3>
+            <h3> Start writing with  <span>V-Notes</span></h3>
             <form className='form' onSubmit={formSubmit}>
                 <input type="title" name="title" id="title" placeholder='Enter the title' onChange={change} value={credentials.title}/>
                 

@@ -7,11 +7,24 @@ const signuproute = require('./routes/signup')
 const notesroute = require('./routes/notes')
 const logoutroute = require('./routes/logout')
 const authenticate = require('./middleware/authenticate')
- const cors = require('cors');
+const cors = require('cors');
+const dotenv = require('dotenv')
+
+dotenv.config()
+
+const port = process.env.PORT
+const host = process.env.HOST
 
 
-// middlewares
-app.use(cors({origin:'http://localhost:3000',  credentials: true }))
+
+ //middlewares
+   app.use(cors({
+      origin: [ host],
+      credentials: true,
+       methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
+      
+   }));
+
 app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
@@ -28,6 +41,4 @@ app.use('/api/signup' , signuproute)
 
 
 // defining port
-app.listen(4000 , ()=>{
-    console.log("app is listening on port 4000")
-})
+app.listen(port || 4000)

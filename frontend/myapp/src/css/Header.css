@@ -2,18 +2,19 @@
     width: 100%;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
-    background-color: black;
-    color: #f9f7f7;
+    justify-content: space-around;
+    background-color: rgb(255, 255, 255);
+    color: #232222;
     position: sticky;
     top: 0;
+    box-shadow: 2px 2px 10px rgb(179, 179, 179);
 }
 .logo{
-    font-size: 22px;
-    padding: 12px 15px;
+    /* font-size: 22px; */
+    /* padding: 12px 15px; */
     text-align: center;
     vertical-align: middle;
-    font-weight: 700;
+    /* font-weight: 700; */
 
 }
 .navMenu{
@@ -27,16 +28,23 @@
     margin: 0 5px;
 
 }
-.navMenu li a {
+.navMenu li a  {
     text-decoration: none;
     padding: 5px 15px;
     font-size: 15px;
-    color: white;
+    color: rgb(9, 9, 9);
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .navMenu li a:hover{
     /* border-bottom: 2px solid white; */
     color: rgb(163, 161, 161);
+}
+.navMenu li a img{
+    padding-right: 8px;
+    vertical-align: middle;
 }
 .logButton{
     margin-left: auto;
@@ -57,4 +65,11 @@
     margin-right: 4px;
     font-size: 15px;
     font-weight: 600;
+}
+
+@media screen and (max-width : 600px) {
+    .header{
+        justify-content: space-between;
+        padding: 3px;
+    }
 }

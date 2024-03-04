@@ -1,5 +1,6 @@
 import { useState } from "react";
 import NoteContext from "./noteContext";
+import ErrorPage from "../../components/ErrorPage";
 
 
 function NoteState(props) {
@@ -9,29 +10,37 @@ function NoteState(props) {
     // fetching all notes
     const getNotes = async () => {
 
-        const res = await fetch(`${url}`, {
-            method : 'GET',
-            headers: {
-                'content-type': "application/json"
-                },
-            credentials : "include"
-        })
+        try {
+            const res = await fetch(`${url}`, {
+                method : 'GET',
+                headers: {
+                    'content-type': "application/json"
+                    },
+                credentials : "include"
+            })
+    
+            const response = await res.json()
+            // if(response.success){
+    
+            //     setNotes(response.Newnotes)
+            // }
+            // else{
+            //     return response
+            // }
+            return response;
+        } catch (error) {
 
-        const response = await res.json()
-        // if(response.success){
 
-        //     setNotes(response.Newnotes)
-        // }
-        // else{
-        //     return response
-        // }
-        return response;
+            return <ErrorPage/>
+            
+        }
         
     }
 
     // creating a notes 
     const createNote = async (title, description, tag) => {
-        if(title.length >3 && description.length>3 )
+        try {
+            if(title.length >3 && description.length>3 )
         {
             const res = await fetch(`${url}/addNote`, {
                 method : 'POST',
@@ -45,54 +54,70 @@ function NoteState(props) {
             const response = await res.json()
             setNotes (notes.concat(response))
         }
-
+ 
+        } catch (error) {
+           
+            return <ErrorPage/>
+        }
+       
     }
 
     // updating a note 
     const updateNote = async (id ,title , description , tag)=>{
-
-        console.log('here what we have got ' , id , title)
-
-         const res = await fetch (`${url}/updateNote/${id}` , {
-             method : 'PUT',
-           headers : { 
-                 'content-type' : 'application/json'
-             },
-             credentials : "include",
-             body : JSON.stringify({title : title , description : description , tag : tag})
-         })
-
-         const response = await res.json();
-         if(response.success){
-            let newNotes = JSON.parse(JSON.stringify(notes))
-            for (let index = 0; index < newNotes.length; index++) {
-                const element = newNotes[index];
-                if (element._id === id) {
-                  newNotes[index].title = title;
-                  newNotes[index].description = description;
-                  newNotes[index].tag = tag; 
-                  break; 
-                }
-              }  
-              setNotes(newNotes);
-              return true;
-         }
-         console.log(response)
+         
+        
+         try {
+            const res = await fetch (`${url}/updateNote/${id}` , {
+                method : 'POST',
+              headers : { 
+                    'content-type' : 'application/json'
+                },
+                credentials : "include",
+                body : JSON.stringify({title : title , description : description , tag : tag})
+            })
+   
+            const response = await res.json();
+            
+            if(response.success){
+                let newNotes = JSON.parse(JSON.stringify(notes))
+                for (let index = 0; index < newNotes.length; index++) {
+                    const element = newNotes[index];
+                    if (element._id === id) {
+                      newNotes[index].title = title;
+                      newNotes[index].description = description;
+                      newNotes[index].tag = tag; 
+                      break; 
+                    }
+                  }  
+                  setNotes(newNotes);
+                  return true;
+             }
+         } catch (error) {
+            
+            return <ErrorPage/>
+            }
+         
+        
+        
 
     }
 
     // deleting a note 
     const deleteNote = async (id)=>{
-        console.log('we are in delete note ' , id)
+       try {
+        console.log(id)
         const res = await fetch(`${url}/deleteNote/${id}`, {
-            method : 'DELETE', 
+          
+            method : 'POST', 
             headers : {
                 'content-type' : 'application/json'
             },
             credentials : "include"
 
         })
+        console.log(res)
         const response = await res.json()
+        console.log(response)
          if(response){
             let newNote = notes.filter((e)=>{
                 return e._id !== id
@@ -100,6 +125,12 @@ function NoteState(props) {
             })
             setNotes (newNote)
          }
+       } catch (error) {
+       
+          return <ErrorPage/>
+       
+       }
+        
     }
 
     return (

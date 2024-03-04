@@ -4,13 +4,13 @@ import UserContext from '../context/user/userContext';
 import NoteContext from '../context/notes/noteContext';
 
 function Logout() {
-    const { LogedIn,setLogedIn } = useContext(UserContext)
+    const { setLogedIn } = useContext(UserContext)
     const { setNotes} = useContext(NoteContext)
     const navigate = useNavigate()
 
     const logout = async () => {
 
-        console.log(LogedIn)
+        
         try {
             const res = await fetch('http://localhost:4000/api/logout', {
                 method: 'GET',
@@ -21,11 +21,10 @@ function Logout() {
             });
 
             const response = await res.json()
-            console.log(response)
+         
     
             if (response.success ) {
                 setLogedIn(false);
-                console.log(setLogedIn)
                 setNotes(null)
                 return navigate('/login');
             } else {

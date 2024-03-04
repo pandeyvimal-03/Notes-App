@@ -1,11 +1,21 @@
 
 /* This is style */
 .notes{
-    width: 80vw;
+    width: 40%;
     margin: 20px auto;
     display: flex;
-    align-items:flex-start;
-    /* justify-content: space-around; */
     flex-wrap: wrap;
+    /* justify-content: space-evenly; */
+    flex-wrap: wrap;
+    padding: 10px 0;
+   
+    
     /* position: relative; */
+}
+@media screen and (max-width : 600px) {
+    .notes{
+        width: 90%;
+        padding: 0;
+        justify-content: space-around;
+    }
 }

@@ -2,14 +2,15 @@ const express = require('express')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const myUser = require('../database/models/myUsers')
+const dotenv = require('dotenv')
+dotenv.config()
 
 
 const hash = async (req) => {
 
 
-    console.log(req.body.password)
+   
     const salt = await bcrypt.genSalt(10);
-    console.log(salt)
     const newPassword = await bcrypt.hash(req.body.password, salt)
     return newPassword;
 
@@ -17,7 +18,7 @@ const hash = async (req) => {
 
 const createToken = async (user) => {
 
-    const key = "vimal"
+    const key = process.env.KEY
     data = {
         id: user.id,
         email: user.email
@@ -41,7 +42,7 @@ const registerUser = async (req, res) => {
 
         const user = await myUser.findOne({ email: email });
         if (user) {
-            res.status(400).json({ success: false, message: "user with similar email already exist" })
+           return res.status(400).json({ success: false, message: "user with similar email already exist" })
         }
         else {
             const hashPassword = await hash(req);
@@ -55,7 +56,7 @@ const registerUser = async (req, res) => {
         }
     } catch (error) {
 
-        console.log(error)
+        return res.status(500).json({success : false , message : "some internal error ocuured"})
     }
 
 }
@@ -70,23 +71,22 @@ const checkUser = async (req, res) => {
         const user = await myUser.findOne({ email: email })
 
         if (!user) {
-            res.status(400).json({ success: false, message: "user not found" })
+           return res.status(400).json({ success: false, message: "user not found" })
         }
         else {
 
-            const passwordMatch = bcrypt.compare(password, user.password)
+            const passwordMatch = await bcrypt.compare(password, user.password)
             if (!passwordMatch) {
-                res.status(400).json({ success: false, message: "user not found" })
+               return res.status(400).json({ success: false, message: "user not found" })
             }
             else {
                 const token = await createToken(user)
-                res.cookie("token", token, {sameSite: 'None', secure: true,httpOnly: true,} ).json({ success: true, message: "logedin successfully" })
+              return  res.cookie("token", token, {sameSite: 'None', secure: true,httpOnly: true,} ).json({ success: true, message: "logedin successfully" })
             }
         }
 
     } catch (error) {
-        console.log(error)
-
+        return res.status(500).json({success : false , message : "some internal error ocuured"})
     }
 
 }

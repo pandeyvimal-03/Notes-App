@@ -1,36 +1,40 @@
 .login{
 
     width: 40%;
-    height: 40vh;
+    height: auto;
     margin: 80px auto;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0);
+    /* box-shadow: 0px 0px 8px rgba(0, 0, 0); */
     display: flex;
     flex-direction: column;
-    background-color: rgb(243, 243, 225);
+    /* background-color: rgb(243, 243, 225); */
+   
 }
 .login h3{
-    font-size: 22px;
+    font-size: 35px;
     margin: auto;
     text-align: center;
+    font-family: "Dancing Script", cursive;
+    font-weight: bolder;
+    
 }
 .login h3 span{
-    font-size: 25px;
-    color: rgb(25, 24, 24);
+    font-size: 35px;
+   
 }
-.form{
-    width: 80%;
+.login .form{
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 8px 8px;
-   
+   margin: auto;
 }
-.form input{
+.login .form input{
     padding: 12px 10px;
     border-style: none;
     outline: none;
     border: 1px solid black;
     border-radius: 4px;
-   margin: 8px 0px;  
+    margin: 15px 0px;  
 }
 .form button{
     padding: 12px 0px;
@@ -40,4 +44,68 @@
     font-weight: 600;
     border-radius: 3px;
     font-size: 17px;
+}
+.bottomtext{
+    margin: auto;
+    padding: 2vw 1vw;
+    font-size: 22px;
+    font-family: "Dancing Script", cursive;
+    font-weight: bold;
+    color: rgb(66, 66, 65);
+    
+}
+.bottomtext a {
+    font-size: 24px;
+    padding: 0vw 1vw;
+    color: rgb(172, 56, 56);
+    text-decoration: none;
+    font-weight: bolder;
+    font-family: "Dancing Script", cursive;
+}
+
+
+@media screen and (max-width : 600px) {
+    .login{
+        width: 92%;
+        height: 100%;
+        background-color: white;
+        border: none;
+        box-shadow: none;
+        vertical-align: middle;
+    }
+    .login h3{
+        font-size: 30px;
+       
+       
+    }
+    .login h3 span {
+        font-size: 30px;
+    }
+    .login form {
+        width: 90%;
+        padding: 15px 4px;
+        margin-top: 10px;
+      
+    }
+    .form input{
+        margin: 6vw;
+        padding: 3.8vw 3vw;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    .login form button{
+        font-size: 20px;
+        padding: 8px  4px;
+        font-weight: bolder;
+    }
+    .bottomtext{
+        font-size: 22px;
+        padding: 10px 2px;
+       
+    }
+    .bottomtext a{
+        font-size: 24px;
+        
+    }
+    
 }

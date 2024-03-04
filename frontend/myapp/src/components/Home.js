@@ -16,7 +16,6 @@ function Home() {
     useEffect(() => {
         
         if (properties) {
-            console.log("hii")
             setMessage(properties.message)
             setTimeout(() => {
                 setMessage("")
@@ -33,9 +32,6 @@ function Home() {
     return (
         <div>
             <AddNote />
-
-            {/* <NotesItem title={"Hello how are you"} description={"we are indians and we can do anything we want , so never ever mess with us we are indians"} /> */}
-            {/* <Notes/> */}
             <Notes/>
 
 

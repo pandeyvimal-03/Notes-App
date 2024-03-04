@@ -1,5 +1,5 @@
 import React, { useState , useContext } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Link} from 'react-router-dom';
 import UserContext from '../context/user/userContext';
 import Notify from '../utils/Notify';
 
@@ -62,6 +62,7 @@ function Login() {
             <button type='submit'>Submit</button>
 
         </form>
+        <div className='bottomtext'>---------  &nbsp; Don't have account &nbsp;&nbsp;&nbsp;&nbsp;: <Link to="/signup">Signup</Link></div>
       
     </div>
   )
